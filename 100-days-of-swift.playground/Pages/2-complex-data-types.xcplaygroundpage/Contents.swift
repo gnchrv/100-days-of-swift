@@ -17,3 +17,12 @@ type(of: numbers)
 let (inserted, memberAfterInsert) = numbers.insert(3)
 inserted
 memberAfterInsert
+
+// A tuple with named properties
+var website = (name: "Apple", url: "apple.com")
+website.name
+website.url
+website.self == website
+
+// A tuple with properties of different types. Can be used when an Array is not an option because it can only contain items of the same type
+let person = (name: "Paul", age: 40, married: true)
