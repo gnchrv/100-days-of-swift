@@ -26,3 +26,28 @@ website.self == website
 
 // A tuple with properties of different types. Can be used when an Array is not an option because it can only contain items of the same type
 let person = (name: "Paul", age: 40, married: true)
+
+// Dictionaries
+let heights = [
+    "Taylor Swift": 1.78,
+    "Ed Sheeran": 1.73,
+    "someone": 2.03
+]
+
+// The result of accessing a property is always optional since it can't be guaranteed that a dictionary has a specified key
+heights["Taylor Swift"] ?? 0.0
+
+// Dictionary properties can not be accessed via dot notation
+// heights.someone
+
+// Creating empty collections. First, dictionaries
+var teams = [String: String]()
+var players: Dictionary<String, String> = Dictionary()
+
+// Empty arrays
+var stadiums = [String]()
+var locations: Array<String> = Array()
+
+// Empty sets
+var names = Set<String>()
+var surnames: Set<String> = Set()
