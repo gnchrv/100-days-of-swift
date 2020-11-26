@@ -124,3 +124,32 @@ let game = Sport.init(rawValue: "football")
 
 // The result is an optional of type Sport?
 type(of: game)
+
+// An example of a recursive enum with associated values. Recursive cases are precede by `indirect` keyword
+enum ArithmeticExpression {
+    case number(Int)
+    indirect case addition(ArithmeticExpression, ArithmeticExpression)
+    indirect case multiplication(ArithmeticExpression, ArithmeticExpression)
+}
+
+// Representing an arithmetic expression (5 + 4) × 2
+let five: ArithmeticExpression = .number(5)
+let four: ArithmeticExpression = .number(4)
+let two:  ArithmeticExpression = .number(2)
+
+let sum: ArithmeticExpression = .addition(five, four)
+let product: ArithmeticExpression = .multiplication(sum, two)
+
+// A recursive function that evaluates the expression
+func evaluate(_ expression: ArithmeticExpression) -> Int {
+    switch expression {
+    case let .number(value):
+        return value
+    case let .addition(left, right):
+        return evaluate(left) + evaluate(right)
+    case let .multiplication(left, right):
+        return evaluate(left) * evaluate(right)
+    }
+}
+
+evaluate(product)
