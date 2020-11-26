@@ -51,3 +51,43 @@ var locations: Array<String> = Array()
 // Empty sets
 var names = Set<String>()
 var surnames: Set<String> = Set()
+
+// Enumeration with cases appearing on a single line, separated by a comma
+enum Result {
+    case success, failure
+}
+
+let result: Result = .failure
+let anotherResult = Result.success
+
+// An enum confirming to a protocol CaseIterable which enables it to provide a collection of all its cases
+enum Direction: CaseIterable {
+    case north
+    case east
+    case south
+    case west
+}
+
+Direction.allCases
+
+// An enum with associated values
+enum Activity {
+    case bored
+    case running(destination: String)
+    case talking(topic: String)
+    case singing(volume: Int)
+}
+
+let talking: Activity = .talking(topic: "football")
+
+// Accessing associated values inside a switch statement
+switch talking {
+case .bored:
+    print("Someone is bored")
+case .running(let destination):
+    print("Someone is running to the \(destination)")
+case let .singing(volume):
+    print("Someone is singing \(volume > 5 ? "loudly" : "quietly")")
+case let .talking(topic):
+    print("Someone is talking about \(topic)")
+}
