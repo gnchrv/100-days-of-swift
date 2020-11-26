@@ -91,3 +91,36 @@ case let .singing(volume):
 case let .talking(topic):
     print("Someone is talking about \(topic)")
 }
+
+// An enum with raw values (all generated automatically by the compiler based on the type provided)
+enum Mood: Int {
+    case happy
+    case sad
+    case hungry
+    case grumpy
+    case sleepy
+}
+
+// An enum with custom raw values (one is specified and the others a generated automatically)
+enum Planet: Int {
+    case mercury = 1
+    case venus
+    case earth
+    case mars
+}
+
+// An enum with raw values of type String (equal to the names of the cases)
+enum Sport: String {
+    case footbal
+    case basketball
+    case hockey
+}
+
+// Accessing raw value
+let sport = Sport.hockey.rawValue
+
+// Initializing an enum using a raw value
+let game = Sport.init(rawValue: "football")
+
+// The result is an optional of type Sport?
+type(of: game)
