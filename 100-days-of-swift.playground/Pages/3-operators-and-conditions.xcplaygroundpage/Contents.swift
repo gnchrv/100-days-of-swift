@@ -17,3 +17,45 @@ let preciseDivision: Double = 18 / 7 // 2.571428…
 
 // Check if a number divide equally into another number
 169.isMultiple(of: 13)
+
+// Operator overloading. Plus sign can be used not only with numbers or strings, but also with arrays (of the same type, of course)
+let a = [1, 2, 3]
+let b = [4, 5, 6]
+a + b
+
+// Comparable protocol
+struct Date {
+    let year: Int
+    let month: Int
+    let day: Int
+}
+
+extension Date: Comparable {
+    static func < (lhs: Date, rhs: Date) -> Bool {
+        if lhs.year != rhs.year {
+            return lhs.year < rhs.year
+        } else if lhs.month != rhs.month {
+            return lhs.month < rhs.month
+        } else {
+            return lhs.day < rhs.day
+        }
+    }
+    
+    static func == (lhs: Date, rhs: Date) -> Bool {
+        return lhs.year == rhs.year &&
+        lhs.month == rhs.month &&
+        lhs.day == rhs.day
+    }
+    
+}
+
+// Since Swift 5.3, enums with no associated values conform to Comparable protocol by default
+enum CustomerLevel: Comparable {
+    case basic
+    case premium
+    case ultimate
+}
+
+let borisLevel: CustomerLevel = .basic
+let mariaLevel: CustomerLevel = .ultimate
+borisLevel < mariaLevel
