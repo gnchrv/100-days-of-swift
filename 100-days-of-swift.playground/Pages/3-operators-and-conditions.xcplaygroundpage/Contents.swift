@@ -78,3 +78,14 @@ case (let distance, 0), (0, let distance):
 default:
     print("Not on an axis")
 }
+
+// Ranges
+let names = ["Misha", "Vasya", "Nastya", "Marusya"]
+print(names[1..<3])
+print(names[1...])
+print(names[..<3])
+
+// Checking whether a rage contains some value
+(1...10).contains(10)
+(1...10).first!
+(1...10).last!
