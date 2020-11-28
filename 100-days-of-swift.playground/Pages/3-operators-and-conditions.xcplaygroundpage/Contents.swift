@@ -59,3 +59,22 @@ enum CustomerLevel: Comparable {
 let borisLevel: CustomerLevel = .basic
 let mariaLevel: CustomerLevel = .ultimate
 borisLevel < mariaLevel
+
+// Switch statement
+let point = (10, -5) // 4th quadrant
+
+// Example with value binding and a `where` clause
+switch point {
+case let (x, y) where y == x:
+    print("Point \(point) is on the line y(x) = x")
+default:
+    print("Point \(point) is not on the line y(x) = x")
+}
+
+// Example with a compound case with value binding
+switch point {
+case (let distance, 0), (0, let distance):
+    print("On an axis, \(distance) from the origin")
+default:
+    print("Not on an axis")
+}
