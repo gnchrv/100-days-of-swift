@@ -4,5 +4,6 @@
         <page name='2-complex-data-types'/>
         <page name='3-operators-and-conditions'/>
         <page name='4-loops'/>
+        <page name='5-functions'/>
     </pages>
 </playground>
