@@ -22,3 +22,17 @@ func sayHello(to name: String, nicely: Bool = true) -> String {
 
 sayHello(to: "Vasya")
 sayHello(to: "Vasya", nicely: false)
+
+// Variadic functions. print() is actually a good example of a variadic function since it accepts any number of parameters
+print("one", "two", "three", separator: " / ", terminator: " 👀")
+
+// Let's write a function that returns a product of any given number of items
+func multiply(_ numbers: Int...) -> Int {
+    var product = 1
+    for number in numbers {
+        product *= number
+    }
+    return product
+}
+
+multiply(1, 2, 10, 15)
