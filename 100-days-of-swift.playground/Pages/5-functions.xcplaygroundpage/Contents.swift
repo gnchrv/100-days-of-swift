@@ -24,7 +24,7 @@ sayHello(to: "Vasya")
 sayHello(to: "Vasya", nicely: false)
 
 // Variadic functions. print() is actually a good example of a variadic function since it accepts any number of parameters
-print("one", "two", "three", separator: " / ", terminator: " 👀")
+print("one", "two", "three", separator: " / ", terminator: " 👀\n")
 
 // Let's write a function that returns a product of any given number of items
 func multiply(_ numbers: Int...) -> Int {
@@ -36,3 +36,29 @@ func multiply(_ numbers: Int...) -> Int {
 }
 
 multiply(1, 2, 10, 15)
+
+// Specifiyng a throwing function. First, declare an enum containing error cases
+enum PasswordErrors: Error {
+    case obvious
+    case someOtherCase
+}
+
+// Next, declare a function that checks password and throws an error if the password is too obvious
+func checkPassword(_ password: String) throws -> Bool {
+    if password == "password" {
+        throw PasswordErrors.obvious
+    }
+    return true
+}
+
+// Now, let's handle the result of calling this function
+do {
+    let checked = try checkPassword("password")
+    if checked {
+        print("Password is valid")
+    }
+} catch PasswordErrors.obvious {
+    print("Password provided is obvious")
+} catch {
+    print("Something went wrong")
+}
