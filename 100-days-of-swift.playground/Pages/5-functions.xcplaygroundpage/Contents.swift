@@ -62,3 +62,15 @@ do {
 } catch {
     print("Something went wrong")
 }
+
+// Function arguments can be market as `inout`. It basically means that these parameters' values can be changed inside a function body (normally, we can't do that because values are being passed as constants)
+var number = 2
+
+func squarify(number: inout Int) {
+    number = number * number
+}
+
+// When calling a function, inout parameters should be prefixed with an ampersand, &
+squarify(number: &number)
+
+number
