@@ -16,3 +16,31 @@ let walking = { (destination: String) in
 // Calling a closure and passing it an argument
 walking("my home")
 
+// A closure that returns a value
+let thinking = { (subject: String) -> String in
+    return "I'm thinking of \(subject)"
+}
+
+thinking("you")
+
+// Returning from a closure that accepts no parameters
+let isItOK = { () -> Bool in
+    return true
+}
+
+isItOK()
+
+// Accepting a closure as a parameter
+func travel(action: () -> Void) {
+    print("I'm getting ready to go")
+    action()
+    print("I'm arrived")
+}
+
+// Passing a predifined closure
+travel(action: driving)
+
+// Passing a closure literal
+travel {
+    print("I'm running")
+}
