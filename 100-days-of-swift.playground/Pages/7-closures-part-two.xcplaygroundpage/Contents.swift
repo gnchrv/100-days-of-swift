@@ -8,7 +8,7 @@ let driving = {(place: String) in
 // Declaring a function that accepts a closure and pass a string to it
 func travel(action: (String) -> Void) {
     print("I'me getting ready")
-    driving("London")
+    action("London")
     print("I'm arriving")
 }
 
