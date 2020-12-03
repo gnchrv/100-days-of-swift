@@ -63,3 +63,65 @@ func newTravel(action: (String) -> String) {
 newTravel {
     "I'm going to \($0)"
 }
+
+// Returning a closure from a function
+func travel() -> (String) -> String {
+    return { (place: String) -> String in
+        return "I'm going to \(place)"
+    }
+}
+
+// The same, but using shorhand syntax
+func newTravel() -> (String) -> String {
+    { "I'm going to \($0)" }
+}
+
+travel()("Moscow")
+newTravel()("Moscow")
+
+// Declare a function that returns a closure with a captured value
+func newWalking() -> (String) -> String {
+    var counter = 0
+    return {
+        counter += 1
+        return "\(counter). I'm walking to \($0)"
+    }
+}
+
+// Get the closure and call it multiple times
+let actuallyWalking = newWalking()
+actuallyWalking("London")
+actuallyWalking("London")
+actuallyWalking("London")
+
+// Using the same technique, create a function returning a closure which generates random numbers (but with a twist: it won't return the same number twice in a row)
+
+func makeRandomNumberGenerator() -> () -> Int {
+    // Store previous number that has been generated
+    var prevousNumber = 0
+    
+    return {
+        // Declare a variable in which a newly generated number will be stored
+        var newNumber: Int
+        
+        // Generate new number untill it's not equal to the previous one
+        repeat {
+            newNumber = Int.random(in: 1...3)
+        } while newNumber == prevousNumber
+        
+        // Update the previous one
+        prevousNumber = newNumber
+        
+        return newNumber
+    }
+}
+
+// Create a generator and call it multiple times
+var generator = makeRandomNumberGenerator()
+generator()
+generator()
+generator()
+generator()
+generator()
+generator()
+generator()
