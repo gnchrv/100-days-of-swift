@@ -52,3 +52,14 @@ reduce([10, 20, 30], using: {(accumulated: Int, current: Int) -> Int in
 })
 
 reduce([10, 20, 30], using: +)
+
+// travel() function can be re-written using shorthand parameter names (i. e. without specifying them entirelly)
+func newTravel(action: (String) -> String) {
+    print("I'me getting ready")
+    print(action("London"))
+    print("I'm arriving")
+}
+
+newTravel {
+    "I'm going to \($0)"
+}
