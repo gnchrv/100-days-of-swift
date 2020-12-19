@@ -7,5 +7,6 @@
         <page name='5-functions'/>
         <page name='6-closures-part-one'/>
         <page name='7-closures-part-two'/>
+        <page name='8-structs-part-one'/>
     </pages>
 </playground>
