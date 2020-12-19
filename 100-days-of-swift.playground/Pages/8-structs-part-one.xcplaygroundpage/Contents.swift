@@ -10,6 +10,8 @@ struct Sport {
     }
 }
 
+/* Behind the scenes, a computed property is effectively just a function call that happens to belong to a struct */
+
 // Creating an instance of an Olympic sport
 var tennis = Sport(name: "Tennis", isOlympic: true)
 print(tennis.olympicStatus)
@@ -18,4 +20,20 @@ print(tennis.olympicStatus)
 var chessboxing = Sport(name: "Chessboxing", isOlympic: false)
 print(chessboxing.olympicStatus)
 
-/* Behind the scenes, a computed property is effectively just a function call that happens to belong to a struct */
+// Creating a struct with a property observer
+struct Progress {
+    var task: String
+    var amount: Int {
+        didSet {
+            print("\(task) is now \(amount)% complete")
+        }
+    }
+}
+
+// Initialize an object
+var progress = Progress(task: "Loading data", amount: 0)
+
+// Every time the value is changed there's statement printed to the console
+progress.amount = 30
+progress.amount = 80
+progress.amount = 100
