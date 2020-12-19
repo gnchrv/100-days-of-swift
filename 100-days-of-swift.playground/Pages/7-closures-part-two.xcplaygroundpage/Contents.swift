@@ -117,11 +117,8 @@ func makeRandomNumberGenerator() -> () -> Int {
 }
 
 // Create a generator and call it multiple times
-var generator = makeRandomNumberGenerator()
-generator()
-generator()
-generator()
-generator()
-generator()
-generator()
-generator()
+let generator = makeRandomNumberGenerator()
+
+for _ in 1...10 {
+    print(generator())
+}
