@@ -65,3 +65,24 @@ struct User {
 var person = User(name: "Ed")
 person.makeAnonymous()
 person.name
+
+// Almost all of Swift's core types are implemented as structs
+"Test".hasPrefix("Te")
+"Test".count
+"test".sorted()
+
+// Now test with emojis
+"👫🏼".count
+"👫🏼".sorted()
+
+// Arrays are structs as well
+var toys = ["Woody"]
+toys.append("Buzz")
+
+// Searching for an item
+toys.firstIndex(of: "Buzz")
+toys.firstIndex(of: "Bu")
+
+// Removing an item at a specified position
+toys.remove(at: 0)
+toys
