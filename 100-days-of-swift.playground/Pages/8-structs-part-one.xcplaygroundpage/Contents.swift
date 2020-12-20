@@ -37,3 +37,31 @@ var progress = Progress(task: "Loading data", amount: 0)
 progress.amount = 30
 progress.amount = 80
 progress.amount = 100
+
+// Structs with methods
+struct City {
+    var population: Int
+    
+    func collectTaxes() -> Int {
+        population * 1000
+    }
+}
+
+// An example of method calling
+let london = City(population: 9_000_000)
+london.collectTaxes()
+
+// Using mutating methods
+struct User {
+    var name: String
+    
+    // You have to mark such methods as mutating so as it'd be obvious to a compiler that they can be used only when an instance of a struct is stored in a variable (not a constant)
+    mutating func makeAnonymous() {
+        name = "Anonymous"
+    }
+}
+
+// Works olny with var
+var person = User(name: "Ed")
+person.makeAnonymous()
+person.name
