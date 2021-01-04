@@ -54,3 +54,21 @@ struct Student {
 let student = Student(name: "Arkady")
 let anotherStudent = Student(name: "Vasily")
 Student.classSize
+
+// Access control: a struct with a private property and its designated getter
+struct AnotherPerson {
+    private var id = Int.random(in: 1..<1_000_000)
+    var name: String
+    
+    init(name: String) {
+        self.name = name
+    }
+    
+    func identify() -> String {
+        return "My social security number is \(id)"
+    }
+}
+
+let anotherPerson = AnotherPerson(name: "Sasha")
+anotherPerson.name
+anotherPerson.identify()
