@@ -55,7 +55,7 @@ london.collectTaxes()
 struct User {
     var name: String
     
-    // You have to mark such methods as mutating so as it'd be obvious to a compiler that they can be used only when an instance of a struct is stored in a variable (not a constant)
+    // You have to mark such methods as mutating so as it'd be obvious to a compiler that they can be used only when an instance of a struct is stored in a variable (not in a constant)
     mutating func makeAnonymous() {
         name = "Anonymous"
     }
@@ -86,3 +86,9 @@ toys.firstIndex(of: "Bu")
 // Removing an item at a specified position
 toys.remove(at: 0)
 toys
+
+// Determine how many more elements the array can store without allocating larger storage
+toys.capacity
+
+let string = "Do or do not, there's no try"
+string.hasPrefix("Do")
