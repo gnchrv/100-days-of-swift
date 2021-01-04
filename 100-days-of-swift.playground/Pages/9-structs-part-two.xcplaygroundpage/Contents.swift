@@ -39,3 +39,18 @@ var person = Person(name: "Boris")
 
 print(person.name)
 print(person.familyTree)
+
+// Static properties that allow to share a value between all instances
+struct Student {
+    static var classSize = 0
+    var name: String
+    
+    init(name: String) {
+        self.name = name
+        Student.classSize += 1
+    }
+}
+
+let student = Student(name: "Arkady")
+let anotherStudent = Student(name: "Vasily")
+Student.classSize
