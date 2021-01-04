@@ -19,3 +19,23 @@ extension User {
 var user = User()
 user.username = "twostraws"
 
+// Lazy properties
+struct FamilyTree {
+    
+    // Assume that initializing the struct takes a lot of time
+    init() {
+        print("Creating family tree!")
+    }
+}
+
+// If lazy keyword is used then familyTree initializing will happen only when it's accessed for the first time
+struct Person {
+    var name: String
+    lazy var familyTree = FamilyTree()
+}
+
+// Side note: lazy properties can not be used on constants since they change the original object
+var person = Person(name: "Boris")
+
+print(person.name)
+print(person.familyTree)
